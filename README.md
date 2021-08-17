@@ -18,6 +18,21 @@
 - [x] 查找出未在 app.json 中注册的页面
 - [x] 本地生成报告
 
+# 使用方法
+
+> 暂时还没发布到 npm，所以需要本地安装
+
+1. 下载并放入当前小程序根目录中
+2. 进入 miniapp-cli 文件夹中安装依赖
+3. 回到根目录，执行 `sudo npm link miniapp-cli`
+4. 执行命令
+
+```bash
+mp-cli -v        # 查看版本
+mp-cli analysis  # 执行分析
+mp-cli a         # 执行分析（简写）
+```
+
 # 页面截图
 
 ![page1](./images/page1.png)
