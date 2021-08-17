@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-Has">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>分析报告</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      height: calc(100vh);
+      overflow-y: scroll;
+    }
+
+    #page1,
+    #page2,
+    #page3 {
+      margin-top: 30px;
+    }
+
+    .bi {
+      vertical-align: -0.125em;
+      pointer-events: none;
+      fill: currentColor;
+    }
+  </style>
+
+  <body>
+    <!-- <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-3 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Miniapp Report</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header> -->
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+          style="width: 280px"
+        >
+          <a
+            href="/"
+            class="
+              d-flex
+              align-items-center
+              mb-3 mb-md-0
+              me-md-auto
+              text-white text-decoration-none
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="32"
+              fill="currentColor"
+              class="me-2 bi bi-x-diamond-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.047 3.339 8 7.293l3.954-3.954L9.049.435zm3.61 3.611L8.708 8l3.954 3.954 2.904-2.905c.58-.58.58-1.519 0-2.098l-2.904-2.905zm-.706 8.614L8 8.708l-3.954 3.954 2.905 2.904c.58.58 1.519.58 2.098 0l2.905-2.904zm-8.614-.706L7.292 8 3.339 4.046.435 6.951c-.58.58-.58 1.519 0 2.098l2.904 2.905z"
+              />
+            </svg>
+            <span class="fs-4">Miniapp CLI</span>
+          </a>
+          <hr />
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item" onclick="onClickMenu('1')">
+              <a href="#" class="nav-link text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi me-2 bi-pie-chart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018zM14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+                  />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item" onclick="onClickMenu('2')">
+              <a href="#" class="nav-link text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi me-2 bi-table"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"
+                  />
+                </svg>
+                组件依赖情况
+              </a>
+            </li>
+            <li class="nav-item" onclick="onClickMenu('3')">
+              <a href="#" class="nav-link text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi me-2 bi-table"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"
+                  />
+                </svg>
+                未注册的页面
+              </a>
+            </li>
+          </ul>
+          <hr />
+          <strong>By Oliver</strong>
+          <!-- <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div> -->
+        </div>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div id="page1">
+            <div
+              id="chart1"
+              style="width: 100%; height: calc(100vh - 60px); margin: 30px 0"
+            ></div>
+          </div>
+
+          <div id="page2" style="display: none">
+            <table class="table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">页面引用次数</th>
+                  <th scope="col">组件引用次数</th>
+                  <th scope="col">组件名称</th>
+                  <th scope="col">组件路径</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var key in componentRefData) { %>
+                <tr>
+                  <td><%= componentRefData[key].pageRefCount %></td>
+                  <td><%= componentRefData[key].componentRefCount %></td>
+                  <td><%- key.split('/')[key.split('/').length - 2] %></td>
+                  <td><%= key %></td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="page3" style="display: none">
+            <table class="table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">页面路径</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i < nonRegistedPageList.length; i++) { %>
+                <tr>
+                  <th scope="row"><%= i %></th>
+                  <td><%- nonRegistedPageList[i] %></td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+
+    <script type="text/javascript">
+
+      var chartDom = document.getElementById('chart1');
+      var myChart = echarts.init(chartDom);
+      var option;
+      var data = genData();
+      option = {
+        title: {
+          text: '组件引用数量统计',
+          subtext: '',
+          left: 'center'
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b} : {c} ({d}%)<br/> {item.path}',
+          formatter: function (params, ticket, callback) {
+            return `组件名称: ${params.name}<br/>使用次数: ${params.value} (${params.percent}%)<br/>完整路径: ${params.data.path}`;
+          }
+        },
+        legend: {
+          type: 'scroll',
+          orient: 'vertical',
+          right: 10,
+          top: 20,
+          bottom: 20,
+          data: data.legendData,
+          selected: data.selected
+        },
+        series: [
+          {
+            name: '组件名称',
+            type: 'pie',
+            radius: '55%',
+            center: ['40%', '50%'],
+            data: data.seriesData,
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }
+        ]
+      };
+
+      function genData(count) {
+        var legendData = []
+        var seriesData = []
+        var data = <%- JSON.stringify(componentRefData) %>;
+        for (const path in data) {
+          var _path = path.split('/')
+          legendData.push(_path[_path.length - 2])
+          seriesData.push({
+            name: _path[_path.length - 2],
+            value: data[path].pageRefCount + data[path].componentRefCount,
+            path: path
+          })
+        }
+
+        return {
+          legendData: legendData,
+          seriesData: seriesData
+        };
+      }
+
+      option && myChart.setOption(option);
+
+      function onClickMenu(id) {
+        document.getElementById('page1').style.display = 'none'
+        document.getElementById('page2').style.display = 'none'
+        document.getElementById('page3').style.display = 'none'
+        document.querySelectorAll('.nav-link').forEach((node, index) => {
+          if(index == Number(id) - 1) {
+            node.classList.add('active')
+          }else {
+            node.classList.remove('active')
+          }
+        })
+        document.getElementById('page' + id).style.display = '';
+      }
+    </script>
+  </body>
+</html>

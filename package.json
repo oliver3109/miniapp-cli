@@ -1,0 +1,24 @@
+{
+  "name": "miniapp-cli",
+  "version": "1.0.0",
+  "description": "微信小程序命令行工具",
+  "bin": {
+    "mp-cli": "./bin/cli.js"
+  },
+  "author": "Oliver",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "ejs": "^3.1.6",
+    "exec-sh": "^0.3.4",
+    "express": "^4.17.1",
+    "global-prefix": "^3.0.0",
+    "handlebars": "^4.5.3",
+    "inquirer": "^7.0.1",
+    "ncp": "^2.0.0",
+    "ora": "^4.0.3",
+    "recursive-readdir": "^2.2.2",
+    "shelljs": "^0.8.3"
+  }
+}
